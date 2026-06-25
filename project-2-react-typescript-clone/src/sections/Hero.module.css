@@ -1,0 +1,42 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.greeting {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text);
+  max-width: var(--measure);
+}
+
+.intro {
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-secondary);
+  max-width: var(--measure);
+}
+
+.line {
+  display: block;
+}
+
+.inlineIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 2px;
+  vertical-align: -4px;
+  color: var(--text);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

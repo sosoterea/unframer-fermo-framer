@@ -1,0 +1,122 @@
+.slot {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+}
+
+.island {
+  overflow: hidden;
+  min-width: 236px;
+  max-width: min(90vw, 320px);
+  padding: 8px 14px;
+  border-radius: 0 0 20px 20px;
+  background-color: var(--surface-dark);
+  color: var(--on-dark);
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  margin-right: auto;
+}
+
+.name {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-tight);
+  color: var(--on-dark);
+}
+
+.role {
+  font-size: var(--fs-small);
+  letter-spacing: var(--ls-tight);
+  color: var(--on-dark-secondary);
+}
+
+.time {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--ls-tight);
+  padding-left: 16px;
+  color: var(--on-dark);
+}
+
+.details {
+  overflow: hidden;
+}
+
+.detailsInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.weather {
+  font-size: 13px;
+  letter-spacing: var(--ls-tight);
+  color: var(--on-dark-secondary);
+  white-space: nowrap;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  letter-spacing: var(--ls-tight);
+  color: var(--on-dark);
+  white-space: nowrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #43c463;
+  box-shadow: 0 0 0 0 rgba(67, 196, 99, 0.6);
+  animation: pulse 2s infinite;
+}
+
+.status[data-online="false"] .dot {
+  background-color: #9a9a9a;
+  animation: none;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(67, 196, 99, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(67, 196, 99, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(67, 196, 99, 0);
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "fermo-react-typescript-clone",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Phase 2 — Independent React + Vite + TypeScript clone of the Fermo portfolio. No Framer/unframer runtime.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.1.1",
+    "@phosphor-icons/react": "^2.1.7",
+    "framer-motion": "^11.18.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.11"
+  }
+}

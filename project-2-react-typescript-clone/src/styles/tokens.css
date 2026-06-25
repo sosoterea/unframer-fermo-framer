@@ -1,0 +1,77 @@
+/* ============================================================================
+   Design tokens — extracted from the Fermo Framer canvas (41 color tokens with
+   a full dark-mode map) and re-expressed as semantic CSS custom properties.
+
+   Light is the default; `:root[data-theme="dark"]` holds the dark overrides.
+   The theme is driven by the useTheme hook (persisted + system-aware), so we do
+   NOT also gate on prefers-color-scheme here — the hook sets the initial value.
+   ============================================================================ */
+
+:root {
+  /* Page */
+  --bg: rgb(255, 255, 255);
+  --text: rgb(5, 5, 5);
+  --text-secondary: rgba(5, 5, 5, 0.6);
+  --text-tertiary: rgba(5, 5, 5, 0.4);
+  --text-quaternary: rgba(5, 5, 5, 0.48);
+  --border: rgba(5, 5, 5, 0.1);
+  --border-strong: rgba(5, 5, 5, 0.2);
+  --hairline: rgba(5, 5, 5, 0.1);
+
+  /* Surfaces that stay dark in light mode (the floating island & rail) */
+  --surface-dark: rgb(5, 5, 5);
+  --surface-dark-border: rgba(255, 255, 255, 0.12);
+  --on-dark: rgb(255, 255, 255);
+  --on-dark-secondary: rgba(255, 255, 255, 0.6);
+  --on-dark-tertiary: rgba(255, 255, 255, 0.4);
+
+  /* Controls */
+  --button-primary-bg: rgb(5, 5, 5);
+  --button-primary-text: rgb(255, 255, 255);
+  --button-secondary-bg: rgb(255, 255, 255);
+  --button-secondary-text: rgb(5, 5, 5);
+  --toggle-track: rgb(205, 205, 205);
+  --toggle-knob: rgb(255, 255, 255);
+
+  /* Accent */
+  --accent: rgb(255, 140, 0);
+  --status-online: rgb(80, 112, 86);
+
+  /* Type scale */
+  --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --lh-tight: 1.2em;
+  --lh-body: 1.4em;
+  --ls-tight: -0.04em;
+
+  /* Layout */
+  --measure: 640px;
+
+  /* Motion */
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: rgb(5, 5, 5);
+  --text: rgb(255, 255, 255);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-quaternary: rgba(255, 255, 255, 0.24);
+  --border: rgba(255, 255, 255, 0.2);
+  --border-strong: rgba(255, 255, 255, 0.3);
+  --hairline: rgba(255, 255, 255, 0.1);
+
+  --surface-dark: rgb(52, 52, 52);
+  --surface-dark-border: rgba(255, 255, 255, 0.12);
+
+  --button-primary-bg: rgb(255, 255, 255);
+  --button-primary-text: rgb(5, 5, 5);
+  --button-secondary-bg: rgb(52, 52, 52);
+  --button-secondary-text: rgb(255, 255, 255);
+  --toggle-track: rgb(65, 65, 65);
+
+  color-scheme: dark;
+}

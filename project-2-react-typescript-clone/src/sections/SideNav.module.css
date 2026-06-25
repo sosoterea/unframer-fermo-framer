@@ -1,0 +1,122 @@
+/* ---- Desktop rail ------------------------------------------------------ */
+.slot {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 90;
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: max-content;
+  padding: 8px;
+  border-radius: 0 16px 16px 0;
+  background-color: var(--surface-dark);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.14);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 4px;
+  border-radius: 10px;
+  color: var(--on-dark-secondary);
+  transition: color 0.2s var(--ease-spring);
+}
+
+.item:hover {
+  color: var(--on-dark);
+}
+
+.label {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-tight);
+}
+
+.badge {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.railToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 2px auto 0;
+}
+
+/* ---- Mobile bar -------------------------------------------------------- */
+.mobileBar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  border-radius: 999px;
+  background-color: var(--surface-dark);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.mobileButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--on-dark-secondary);
+  transition:
+    color 0.2s var(--ease-spring),
+    background-color 0.2s var(--ease-spring);
+}
+
+.mobileButton:hover {
+  color: var(--on-dark);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobileButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mobileToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 2px;
+}
