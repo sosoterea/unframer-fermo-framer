@@ -1,0 +1,140 @@
+/* ----------------------------------------------------------------------------
+   Phase 1 — Fermo Framer reconstruction · global layout
+   The section components are imported verbatim from the Framer / Design-to-AI
+   export. This stylesheet only provides the page shell that the original
+   published site wrapped those sections in: a centred single column, the
+   fixed dynamic-island header and the fixed left navigation rail.
+---------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Inter", "Inter Placeholder", sans-serif;
+  /* Tokens come from framer/tokens.css and are re-written live by the theme
+     toggle, so the page background follows light / dark automatically. */
+  background-color: var(--token-b1267501-1441-4eeb-b00f-1f97d88a1f91, rgb(255, 255, 255));
+  color: var(--token-a8ff9d6c-5d23-49d8-9264-3793f030258f, rgb(5, 5, 5));
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+a {
+  color: inherit;
+}
+
+/* The whole app is a vertical flow. */
+.page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: clip;
+}
+
+/* Fixed dynamic-island header. In the original the island hangs flush from
+   the top edge: its concave "connector" fillets (box-shadows offset by -34px
+   upward) only blend correctly when the component sits at top:0. */
+.island-slot {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+}
+
+/* Fixed left navigation rail, vertically centred and flush to the left edge.
+   The exported nav is `width:100%`; the published Framer page constrains its
+   frame to the 32px collapsed rail width so each 100px button keeps only its
+   number badge on-screen while the label overflows to negative x (off the
+   viewport's left edge, clipped). On hover the component's own variant grows
+   the rail to min-content and the labels slide into view. We reproduce that by
+   pinning the slot to the 32px intrinsic width at left:0. */
+.nav-slot {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 90;
+  width: 32px;
+}
+
+/* Centred content column — the published Fermo site uses a 640px measure. */
+.content {
+  width: 100%;
+  max-width: 640px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 64px;
+  /* clear the fixed island at the top */
+  padding-top: 180px;
+  padding-bottom: 40px;
+}
+
+.section-block {
+  width: 100%;
+}
+
+/* Footer spans the full width; its own internal max-width keeps it centred. */
+.footer-slot {
+  width: 100%;
+}
+
+/* Below the tablet breakpoint the fixed rail would crowd the column, so the
+   published template tucks it to the bottom-centre as a pill. */
+@media (max-width: 809px) {
+  .nav-slot {
+    top: auto;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+  .content {
+    padding-top: 140px;
+    padding-bottom: 120px;
+    gap: 56px;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Export-runtime fixes
+   The dynamic-island and navigation use decorative concave "connector" fillets
+   built from solid-black offset box-shadows (rgb(5,5,5), -34px / -29px). In a
+   published Framer page these are clipped flush against the viewport edge; in
+   a standalone mount they paint as detached black tabs. We neutralise the solid
+   shadow so the pills stay clean while keeping the elements in the layout.
+---------------------------------------------------------------------------- */
+.island-slot [data-framer-name="Shadow"],
+.island-slot [data-framer-name="Border"] > [data-framer-name="Shadow"],
+.nav-slot [data-framer-name="Shadow"] {
+  box-shadow: none !important;
+}
+/* Hashed-class fallback (same elements, in case data-framer-name is stripped) */
+.framer-v1gbin,
+.framer-1gjbvq0,
+.framer-6l4omw,
+.framer-1sqqct8 {
+  box-shadow: none !important;
+}
