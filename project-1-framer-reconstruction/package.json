@@ -1,0 +1,21 @@
+{
+  "name": "fermo-framer-reconstruction",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Phase 1 — Faithful reconstruction of the Fermo Framer template assembled from the Design-to-AI / unframer exports, running on React + Vite with the bundled Framer runtime.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "dependencies": {
+    "framer-motion": "^11.18.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}
